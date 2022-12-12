@@ -1,6 +1,6 @@
 const feedDisplay = document.querySelector('#feed')
 
-fetch('http://127.0.0.1:8383/results')
+fetch('http://127.0.0.1:5500/results')
   .then(response => {return response.json()})
   .then(data => {   //console.log(data)})
     data.forEach(article => {
@@ -14,10 +14,3 @@ fetch('http://127.0.0.1:8383/results')
 
 .catch(err => {console.log(err)});
 
-
-
-
-// let regex = /\n/;
-// let str = 'Яблоки\n круглые\n\n и яблоки сочные.';
-// let newstr = str.replace(re, '<br>');
-// console.log(newstr); // Яблоки<br> круглые<br><br> и яблоки сочные.
