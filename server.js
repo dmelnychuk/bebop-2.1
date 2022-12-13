@@ -18,9 +18,8 @@ getLinks()
 .then (ulinks => {
     for (let i = 0; i < 1; i++) {
         getPage(ulinks[i]) // returns article per each URL
-        .then (res =>{
-            console.log(`Processed page: ${res}`);
-            translate(res)})// translates article 
+        //.then (res => {console.log(`Type of res: ${typeof(res)}`)})
+        .then (res =>{translate(res)})// translates article 
         .then (res => {article.push({res})})
         .then (res => {
           app.get('/results', (request, result) => {result.json(article)})
