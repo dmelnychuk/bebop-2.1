@@ -1,11 +1,12 @@
 var fs = require("fs");
 var axios = require("axios");
-//let postText = 'I want more coffee'
+//let postText = 'I want more coffee today than yesterday\n\nThe fresh charges against the former CEO come just a day after his arrest by Bahamian authorities at the request of U.S. authorities.  Just hours after Bankman-Fried’s arrest, SEC announced they were preparing to file charges against the FTX co-founder, which will be separate from the ones leading to his most recent arrest in the Bahamas.\n\nDELIVERED EVERY MONDAY\nSubscribe to\nthe Law Decoded newsletter\nEmail Address\nSubscribe\nBy subscribing, you agree to our\nTerms of Services and Privacy Policy'
 
 
 function translate(postText) {
   console.log("Translation started...")
-  newText = JSON.parse(postText)
+  // oldText = JSON.parse(postText)
+  newText = postText
 
     var data =
   `{
@@ -32,9 +33,9 @@ console.log(`Post text : ${newText}`)
        var reStr = JSON.stringify(response.data);
        var rePa = JSON.parse(reStr.toString());
        console.log(`rePa: ${rePa}`)
-       var reTra = rePa.data[0].translated;
-       console.log(reTra);
-       return reTra
+       //var reTra = rePa.data[0].translated;
+       //console.log(reTra);
+       //return reTra
 
       })
       .catch(function (error) {
@@ -43,4 +44,6 @@ console.log(`Post text : ${newText}`)
 
 //translate("The United States Securities and Exchange Commission (SEC) has filed charges against Sam Bankman-Fried, the former CEO of now-bankrupt crypto exchange FTX. \n\nThe")
 
+
+// translate("I want more coffee today than yesterday The fresh charges against the former CEO come just a day after his")
 module.exports = translate;

@@ -28,7 +28,7 @@ readyPost = posts.join();
     await browser.close()
 
 console.log(`Page [ ${oneTimeURL} ] Processing finished!`)
-//console.log(readyPost)
+console.log(`Page post type: ${typeof(readyPost)}`)
 
 return readyPost;
 
