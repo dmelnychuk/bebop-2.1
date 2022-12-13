@@ -20,6 +20,7 @@ getLinks()
         getPage(ulinks[i]) // returns article per each URL
         //.then (res => {console.log(`Type of res: ${typeof(res)}`)})
         .then (res =>{translate(res)})// translates article 
+        .then (res =>{console.log(res)})
         .then (res => {article.push({res})})
         .then (res => {
           app.get('/results', (request, result) => {result.json(article)})

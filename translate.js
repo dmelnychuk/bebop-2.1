@@ -22,7 +22,7 @@ const translate = (postText) => {
         headers: { },
         data : data
       };
-      axios(config)
+    return axios(config)
       .then(response => {response.data.data[0].translated});
       
    
