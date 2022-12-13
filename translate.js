@@ -8,18 +8,20 @@ function translate(postText) {
   // oldText = JSON.parse(postText)
   newText = postText
 
-    var data =
-  `{
+    var data ={
     "data": [
         {
-            "original": "${newText}"
+            "original": `${newText}`
         }
     ],
     "from": "EN",
 
     "to": "UK"
-}`
-console.log(`Post text : ${newText}`)
+}
+console.log(`Type of data : ${typeof(data)}`)
+
+
+
 
     var config = {
         method: 'post',
@@ -32,10 +34,10 @@ console.log(`Post text : ${newText}`)
       .then(function (response) {
        var reStr = JSON.stringify(response.data);
        var rePa = JSON.parse(reStr.toString());
-       console.log(`rePa: ${rePa}`)
-       //var reTra = rePa.data[0].translated;
+       //console.log(`rePa: ${rePa.data}`)
+       var reTra = rePa.data[0].translated;
        //console.log(reTra);
-       //return reTra
+       return reTra
 
       })
       .catch(function (error) {
@@ -45,5 +47,5 @@ console.log(`Post text : ${newText}`)
 //translate("The United States Securities and Exchange Commission (SEC) has filed charges against Sam Bankman-Fried, the former CEO of now-bankrupt crypto exchange FTX. \n\nThe")
 
 
-// translate("I want more coffee today than yesterday The fresh charges against the former CEO come just a day after his")
+//translate("I want more coffee today than yesterday The\n fresh charges against the former CEO come just a day after his")
 module.exports = translate;
