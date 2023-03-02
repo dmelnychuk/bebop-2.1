@@ -62,7 +62,7 @@ async function getLinks(){
 }
 
 
- // getLinks()
+ getLinks()
 // .then (links => {
 //   links.forEach(ulink => {console.log(ulink)}) //looping through each element of received array of URLs
 // })

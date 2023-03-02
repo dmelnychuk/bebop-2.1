@@ -29,6 +29,12 @@ readyPost = posts.join();
 
 console.log(`Page [ ${oneTimeURL} ] Processing finished!`)
 console.log(`Page post type: ${typeof(readyPost)}`)
+console.log(`Page post: ${readyPost}`)
+
+//remove "DELIVERED EVERY" text from readyPost 
+readyPost = readyPost.replace(/DELIVERED EVERY.*/g, '')
+console.log(`Page post after removing "DELIVERED EVERY" text: ${readyPost}`)
+
 
 return readyPost;
 
@@ -39,8 +45,8 @@ module.exports = getPage;
 
 ///tested running function with translate function, connected from separate module.
 
-// oneTimeURL = "https://cointelegraph.com/news/nfts-could-help-solve-diamond-certification-fraud"
-// getPage(oneTimeURL)
+oneTimeURL = "https://cointelegraph.com/news/nfts-could-help-solve-diamond-certification-fraud"
+getPage(oneTimeURL)
 
 // .then (res => {translate(res)})
 // getImage(oneTimeURL)

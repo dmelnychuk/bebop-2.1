@@ -2,7 +2,7 @@ const port = 5500;
 const express = require('express');
 const getLinks = require('./getlinks');
 const getPage = require('./page');
-const translate = require('./translate');
+const translateData = require('./translate-async');
 const cors = require('cors')
 const app = express() 
 let article = []
@@ -16,12 +16,13 @@ app.get('/', (req, res) => {
 
 getLinks()
 .then (ulinks => {
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < 5; i++) {
         getPage(ulinks[i]) // returns article per each URL
         //.then (res => {console.log(`Type of res: ${typeof(res)}`)})
-        .then (res =>{translate(res)})// translates article 
-        .then (res =>{console.log(res)})
-        .then (res => {article.push({res})})
+    //    .then (async res =>{ await translateData(res)})// translates article 
+        // .then (res =>{console.log(res)})
+        .then (res => {article.push({res})
+    console.log(article)})
         .then (res => {
           app.get('/results', (request, result) => {result.json(article)})
           
