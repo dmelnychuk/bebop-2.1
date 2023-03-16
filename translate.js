@@ -14,7 +14,7 @@ const translate = (postText) => {
         original: `${postText}`,
       },
     ],
-    from: "ES",
+    from: "EN",
 
     to: "UK",
   };
@@ -37,4 +37,6 @@ const translate = (postText) => {
 };
 
 module.exports = translate;
- translate("I have never been to London")
+ translate(`
+ 
+ `)
